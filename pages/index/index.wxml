@@ -1,0 +1,13 @@
+<!--index.wxml-->
+<view class="container">
+  <view>选择值: {{value}}</view>
+  <c-picker
+    visible="{{visible}}"
+    title="标题"
+    data="{{list}}"
+    value="{{value}}"
+    bindcancel="handleCancel"
+    bindconfirm="handleConfirm">
+  </c-picker>
+  <button bindtap="handleClick">点击选择</button>
+</view>

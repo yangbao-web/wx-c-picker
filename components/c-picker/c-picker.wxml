@@ -1,0 +1,35 @@
+<!--components/c-picker/c-picker.wxml-->
+<view wx:if="{{show}}" class="t-popup-mask" bindtap="handleCancel"></view>
+<view wx:if="{{show}}" class="t-slot" animation="{{animationData}}">
+  <view class="t-slot-header t-FBH t-FBAC">
+    <view class="t-slot-cancel" bindtap="handleCancel">取消</view>
+    <view class="t-FB1 t-FAC t-slot-title">{{title}}</view>
+    <view class="t-slot-confirm enable" bindtap="handleConfirm">完成</view>
+  </view>
+  <view class="t-slot-pane">
+    <view class="t-slot-body t-FBH t-PR">
+      <view
+        class="t-scroller t-FB1"
+        catchtouchstart="handleTouchstart"
+        catchtouchmove="handleTouchmove"
+        catchtouchcancel="handleTouchend"
+        catchtouchend="handleTouchend">
+        <view style="transition-timing-function: linear; transition-duration: {{transitionDuration}}ms; transform: translateY({{translateY}}px)">
+          <view class="li"></view>
+          <view class="li"></view>
+          <view
+            class="li {{index === actived ? 't-slot-item-active' : ''}}"
+            wx:for="{{data}}"
+            wx:key="index"
+            data-index="{{index}}"
+            bindtouchstart="handleChooseStart"
+            bindtouchend="handleChooseEnd">
+            {{item}}
+          </view>
+          <view class="li"></view>
+          <view class="li"></view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
